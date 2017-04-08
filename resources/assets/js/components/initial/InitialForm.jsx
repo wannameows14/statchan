@@ -4,7 +4,6 @@ import {startGetData} from '../../actions/actions';
 import DatePicker from "react-bootstrap-date-picker";
 import MainStatsContainer from '../MainStatsContainer';
 
-<<<<<<< HEAD
 const DateStyle = {
   width: '100%',
 }
@@ -41,14 +40,13 @@ export default class InitialForm extends Component {
   componentDidUpdate() {
     if ((this.state.dateStart && this.state.dateEnd) &&
         (this.state.dateStart < this.state.dateEnd)){
-      console.log('yeah!');
+      this.props.dispatch(startGetData());
     } else {
       console.log('choose valid dates!');
     }
   }
 
   render() {
-    console.log('initial');
     return (
       <div>
           <li style={LiStyle}>
@@ -59,6 +57,7 @@ export default class InitialForm extends Component {
             <h1>To: </h1>
             <DatePicker value={this.state.dateEnd} showClearButton={false} onChange={this.handleChangeEnd} style={DateStyle} />
           </li>
+          <MainStatsContainer />
       </div>
     )
   }

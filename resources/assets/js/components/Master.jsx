@@ -5,7 +5,7 @@ import StatsTable from './table/StatsTable'
 
 const style = {
   margin: 'auto',
-  width: 800,
+  width: 600,
   position: 'absolute',
   top: window.innerHeight/2 - 100,
   left: 0,
