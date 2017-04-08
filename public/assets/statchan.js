@@ -1340,7 +1340,6 @@
 /***/ function(module, exports) {
 
 	"use strict";
-
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
 	 * All rights reserved.
