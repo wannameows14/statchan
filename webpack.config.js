@@ -6,13 +6,16 @@ module.exports = {
 		path: "public/assets",
 		filename: "[name].js",
 	},
-	module : {
-        loaders: [
-				 {
-					exclude: /(node_modules|bower_components)/,
-					test: /\.js$/,
-					loader: 'babel-loader'
-				 },
-        ]
-    }
+  module: {
+    loaders: [
+      {
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015']
+        },
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/
+      }
+    ]
+  }
 };
