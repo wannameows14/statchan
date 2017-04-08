@@ -17,6 +17,7 @@ export default class LineChartComponent extends Component {
   }
 
   render() {
+    if (!this.props.chartData.labels || !this.props.chartData.values) return <span />;
     var data = {
         labels: this.props.chartData.labels,
         datasets: [
@@ -33,7 +34,7 @@ export default class LineChartComponent extends Component {
 
     return (
       <div>
-        <LineChart data={this.props.chartData} options={chartOptions} width="600" height="250"/>
+        <LineChart data={data} options={chartOptions} width="600" height="250"/>
       </div>
     );
   }

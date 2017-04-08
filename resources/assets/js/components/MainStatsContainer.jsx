@@ -10,7 +10,9 @@ class MainStatsContainer extends Component {
   }
 
   render() {
-    if(!this.props.chartData || !this.props.tableData) return '';
+
+    if(!this.props.chartData || !this.props.tableData) return <span />;
+    console.log(123);
     return (
       <div>
         <ChartPage chartData={this.props.chartData}/>
@@ -21,7 +23,7 @@ class MainStatsContainer extends Component {
 };
 export default connect((state)=>{
   return {
-    tableData:state.tableData,
-    chartData:state.chartData,
+    tableData: state.tableData,
+    chartData: state.chartData,
   }
 })(MainStatsContainer);
