@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react'
 
-import InitialForm from './initial/InitialForm.js';
+import InitialForm from './initial/InitialForm'
+import StatsTable from './table/StatsTable'
 
 const style = {
   margin: 'auto',
@@ -12,23 +13,23 @@ const style = {
   zIndex: 20000
 }
 
-export default class Master extends Component {
+export default class Master extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      child: []
+      child: <StatsTable />
     }
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleKeyDown(e){
 
-    if (e.code == "KeyS" && e.altKey) {
-      this.setState({ child: <InitialForm /> });
-    } else if (e.code == "Escape") {
-      this.setState({ child: [] });
-    }
+    // if (e.code == "KeyS" && e.altKey) {
+    //   this.setState({ child: <StatsTable /> });
+    // } else if (e.code == "Escape") {
+    //   this.setState({ child: [] });
+    // }
   }
 
   componentWillMount(){
