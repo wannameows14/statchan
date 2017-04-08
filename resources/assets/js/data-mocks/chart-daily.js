@@ -1,4 +1,4 @@
-{
+export default {
     "format": "daily",
     "statsType": "number_of_users",
     "data": {

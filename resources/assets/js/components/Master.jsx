@@ -18,18 +18,17 @@ export default class Master extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      child: <StatsTable />
+      child: []
     }
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleKeyDown(e){
-
-    // if (e.code == "KeyS" && e.altKey) {
-    //   this.setState({ child: <StatsTable /> });
-    // } else if (e.code == "Escape") {
-    //   this.setState({ child: [] });
-    // }
+    if (e.code == "KeyS" && e.altKey) {
+      this.setState({ child: (<InitialForm />) });
+    } else if (e.code == "Escape") {
+      this.setState({ child: [] });
+    }
   }
 
   componentWillMount(){
@@ -41,7 +40,6 @@ export default class Master extends React.Component {
   }
 
   render() {
-    console.log(this.state.child);
     return (
       <div style={style}>
         {this.state.child}

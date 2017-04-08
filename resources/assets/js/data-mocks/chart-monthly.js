@@ -1,4 +1,4 @@
-{
+export default {
     "format": "monthly",
     "statsType": "number_of_users",
     "data": {
