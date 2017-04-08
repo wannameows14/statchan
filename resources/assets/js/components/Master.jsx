@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react'
 
-import InitialForm from './initial/InitialForm.jsx';
+import InitialForm from './initial/InitialForm'
+import StatsTable from './table/StatsTable'
 
 const style = {
   margin: 'auto',
@@ -12,7 +13,7 @@ const style = {
   zIndex: 20000
 }
 
-export default class Master extends Component {
+export default class Master extends React.Component {
 
   constructor(props){
     super(props);

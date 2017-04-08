@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 export default class StatsTable extends React.Component {
 	render() {
 		return (
 			<div>
-				table
+				<h1>StatsTable</h1>
 			</div>
 		);
 	}
