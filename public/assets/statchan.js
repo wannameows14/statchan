@@ -54,17 +54,17 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _Master = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"components/Master\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _Master2 = _interopRequireDefault(_Master);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var inner = document.createElement('div');
 	inner.id = 'statchan';
 	document.body.appendChild(inner);
 
-	_reactDom2.default.render(_react2.default.createElement(
-	  'h1',
-	  null,
-	  'Statchan'
-	), document.getElementById('statchan'));
+	_reactDom2.default.render(_react2.default.createElement(_Master2.default, null), document.getElementById('statchan'));
 
 /***/ },
 /* 1 */
@@ -1340,6 +1340,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
+
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
 	 * All rights reserved.

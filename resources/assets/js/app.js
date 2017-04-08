@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import Master from 'components/Master'
 
 var inner = document.createElement('div');
-  inner.id = 'statchan';
-  document.body.appendChild(inner);
+inner.id = 'statchan';
+document.body.appendChild(inner);
 
 ReactDOM.render(
-  <h1>Statchan</h1>,
+  <Master />,
   document.getElementById('statchan')
 );
