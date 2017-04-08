@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import InitialForm from './initial/InitialForm.js';
+import InitialForm from './initial/InitialForm.jsx';
 
 const style = {
   margin: 'auto',
