@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-export default class InitialForm extends Component {
+class InitialForm extends Component {
 
   constructor(props){
     super(props);
   }
 
   render() {
-    console.log('initial');
     return (
       <div>
         <h1>Datepickers</h1>
@@ -15,3 +15,4 @@ export default class InitialForm extends Component {
     )
   }
 }
+export default connect()(InitialForm);
