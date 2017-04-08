@@ -1,4 +1,4 @@
-{
+export default {
   "format": "daily",
   "data": {
       "01-2017": {
@@ -62,4 +62,4 @@
           "number_of_calls": 9
       }
   }
-}
+};
