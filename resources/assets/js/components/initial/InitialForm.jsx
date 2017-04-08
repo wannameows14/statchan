@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {startGetData} from '../../actions/actions';
 import DatePicker from "react-bootstrap-date-picker";
+import MainStatsContainer from '../MainStatsContainer';
 
 class InitialForm extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-    }
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
   }
@@ -34,10 +33,11 @@ class InitialForm extends Component {
   }
 
   render() {
+    console.log('initial');
     return (
       <div>
-        <DatePicker value={this.state.date1} onChange={this.handleChange1} />
-        <DatePicker value={this.state.date2} onChange={this.handleChange2} />
+        <h1>Datepickers</h1>
+        <MainStatsContainer/>
       </div>
     )
   }
