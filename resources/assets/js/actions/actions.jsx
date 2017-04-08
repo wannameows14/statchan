@@ -1,5 +1,10 @@
 import superagent from 'superagent';
 
+// Mock
+
+const tableData = require('../data-mocks/table-monthly.js');
+const chartData = require('../data-mocks/chart-monthly.js');
+
 import { GET_DATA } from '../reducers/types.jsx';
 
 const getDataRoute = '/api/getdata';
@@ -7,15 +12,21 @@ const getDataRoute = '/api/getdata';
 // Start async getting list of series
 export let startGetData = () => {
 	return (dispatch, getState) => {
-    superagent.get(getDataRoute)
-      .end((err, response) => {
-        if(err) {
-					console.log('get error');
-          // dispatch(getListOfSeriesError());
-        } else if(response.ok) {
-          dispatch(getData(response));
-        };
-    });
+		dispatch(getData({
+			tableData,
+			chartData
+		}));
+    // superagent.get(getDataRoute)
+    //   .end((err, response) => {
+    //     if(err) {
+		// 			console.log('get error');
+    //       // dispatch(getListOfSeriesError());
+    //     } else if(response.ok) {
+    //       dispatch(getData(response));
+    //     };
+    // });
+
+
   };
 };
 

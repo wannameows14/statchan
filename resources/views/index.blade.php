@@ -8,5 +8,5 @@
   </head>
   <body>
   </body>
-  <script src="/assets/statchan.js"></script>
+  <script src="http://localhost:5555/_assets/statchan.js"></script>
 </html>

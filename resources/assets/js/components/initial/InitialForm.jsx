@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {startGetData} from '../../actions/actions';
 import DatePicker from "react-bootstrap-date-picker";
+import MainStatsContainer from '../MainStatsContainer';
 
+<<<<<<< HEAD
 const DateStyle = {
   width: '100%',
 }
@@ -44,6 +48,7 @@ export default class InitialForm extends Component {
   }
 
   render() {
+    console.log('initial');
     return (
       <div>
           <li style={LiStyle}>
@@ -58,3 +63,5 @@ export default class InitialForm extends Component {
     )
   }
 }
+
+export default connect()(InitialForm);

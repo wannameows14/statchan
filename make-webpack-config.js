@@ -37,7 +37,7 @@ var alias = {
 	'reducers': 'js/reducers'
 }
 
-module.exports = function() {
+module.exports = function(options) {
     var node_modules_dir = path.resolve(__dirname, 'node_modules');
     var cssLoader = "css-loader";
 	var stylesheetLoaders = {
@@ -47,6 +47,11 @@ module.exports = function() {
 		"scss|sass": [cssLoader, "sass-loader"]
 	};
 
+	var publicPath = (options.devServer) ?
+		"http://localhost:5555/_assets/"
+		:
+		"http://localhost:6006/_assets/";
+
 	Object.keys(stylesheetLoaders).forEach(function(ext) {
 		var stylesheetLoader = stylesheetLoaders[ext];
 		if(Array.isArray(stylesheetLoader)) stylesheetLoader = stylesheetLoader.join("!");
@@ -55,15 +60,17 @@ module.exports = function() {
 
 	var plugins = [];
 
-	// plugins.push(
-	// 	new webpack.optimize.UglifyJsPlugin({
-	// 		compressor: {
-	// 			warnings: false
-	// 		},
-	// 		sourceMap: false
-	// 	}),
-	// 	new webpack.optimize.DedupePlugin() // don`t use it in watch mod!
-	// );
+	if (!options.devServer) {
+		plugins.push(
+			new webpack.optimize.UglifyJsPlugin({
+				compressor: {
+					warnings: false
+				},
+				sourceMap: false
+			}),
+			new webpack.optimize.DedupePlugin() // don`t use it in watch mod!
+		);
+	}
 
     var loaders = {
           "jsx":{
@@ -99,11 +106,14 @@ module.exports = function() {
     };
 
 	return {
+		devtool: options.devtool,
+		debug: options.debug ? true : false,
 	  	entry: {
 			statchan: path.resolve(__dirname, 'resources/assets/js/app.js'),
 		},
 		output: {
 			path: path.resolve(__dirname, 'public/assets'),
+			publicPath: publicPath,
 			filename: "[name].js",
 		},
 		module: {
