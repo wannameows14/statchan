@@ -53,6 +53,18 @@ module.exports = function() {
 		stylesheetLoaders[ext] = ExtractTextPlugin.extract({fallback: "style-loader", use: stylesheetLoader});
 	});
 
+	var plugins = [];
+
+	plugins.push(
+		new webpack.optimize.UglifyJsPlugin({
+			compressor: {
+				warnings: false
+			},
+			sourceMap: false
+		}),
+		new webpack.optimize.DedupePlugin() // don`t use it in watch mod!
+	);
+
     var loaders = {
           "jsx":{
               loader:"babel-loader?stage=0",
@@ -97,6 +109,7 @@ module.exports = function() {
 		module: {
 			loaders: [].concat(loadersByExtension(loaders)).concat(loadersByExtension(stylesheetLoaders)),
 		},
+        plugins: plugins,
 	    resolve: {
 			extensions: ["", ".web.js", ".js", ".jsx", '.css', '.less'],
 			root: path.resolve(__dirname, "resources/assets"),
