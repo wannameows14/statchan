@@ -50,8 +50,7 @@ module.exports = function() {
 	Object.keys(stylesheetLoaders).forEach(function(ext) {
 		var stylesheetLoader = stylesheetLoaders[ext];
 		if(Array.isArray(stylesheetLoader)) stylesheetLoader = stylesheetLoader.join("!");
-
-		stylesheetLoaders[ext] = ExtractTextPlugin.extract("style-loader", stylesheetLoader);
+		stylesheetLoaders[ext] = ExtractTextPlugin.extract({fallback: "style-loader", use: stylesheetLoader});
 	});
 
     var loaders = {
