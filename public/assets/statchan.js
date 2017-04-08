@@ -24150,6 +24150,17 @@
 
 	var _reactBootstrapDatePicker2 = _interopRequireDefault(_reactBootstrapDatePicker);
 
+	var DateStyle = {
+	  width: '100%'
+	};
+
+	var LiStyle = {
+	  display: 'inline-block',
+	  listStyle: 'none',
+	  margin: 10,
+	  width: '45%'
+	};
+
 	var InitialForm = (function (_Component) {
 	  _inherits(InitialForm, _Component);
 
@@ -24158,28 +24169,28 @@
 
 	    _get(Object.getPrototypeOf(InitialForm.prototype), 'constructor', this).call(this, props);
 	    this.state = {};
-	    this.handleChange1 = this.handleChange1.bind(this);
-	    this.handleChange2 = this.handleChange2.bind(this);
+	    this.handleChangeStart = this.handleChangeStart.bind(this);
+	    this.handleChangeEnd = this.handleChangeEnd.bind(this);
 	  }
 
 	  _createClass(InitialForm, [{
-	    key: 'handleChange1',
-	    value: function handleChange1(value) {
+	    key: 'handleChangeStart',
+	    value: function handleChangeStart(value) {
 	      this.setState({
-	        date1: value
+	        dateStart: value
 	      });
 	    }
 	  }, {
-	    key: 'handleChange2',
-	    value: function handleChange2(value) {
+	    key: 'handleChangeEnd',
+	    value: function handleChangeEnd(value) {
 	      this.setState({
-	        date2: value
+	        dateEnd: value
 	      });
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      if (this.state.date1 && this.state.date2 && this.state.date1 != this.state.date2) {
+	      if (this.state.dateStart && this.state.dateEnd && this.state.dateStart < this.state.dateEnd) {
 	        console.log('yeah!');
 	      } else {
 	        console.log('choose valid dates!');
@@ -24191,8 +24202,26 @@
 	      return _react2['default'].createElement(
 	        'div',
 	        null,
-	        _react2['default'].createElement(_reactBootstrapDatePicker2['default'], { value: this.state.date1, onChange: this.handleChange1 }),
-	        _react2['default'].createElement(_reactBootstrapDatePicker2['default'], { value: this.state.date2, onChange: this.handleChange2 })
+	        _react2['default'].createElement(
+	          'li',
+	          { style: LiStyle },
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'From: '
+	          ),
+	          _react2['default'].createElement(_reactBootstrapDatePicker2['default'], { value: this.state.dateStart, autoFocus: true, showClearButton: false, onChange: this.handleChangeStart, style: DateStyle })
+	        ),
+	        _react2['default'].createElement(
+	          'li',
+	          { style: LiStyle },
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'To: '
+	          ),
+	          _react2['default'].createElement(_reactBootstrapDatePicker2['default'], { value: this.state.dateEnd, showClearButton: false, onChange: this.handleChangeEnd, style: DateStyle })
+	        )
 	      );
 	    }
 	  }]);
