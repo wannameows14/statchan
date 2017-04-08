@@ -15,6 +15,7 @@ export let startGetListOfSeries = () => {
     });
   };
 };
+
 //Sync action to move async reponse to state
 export let getListOfSeries = (seriesList) => {
   return {
