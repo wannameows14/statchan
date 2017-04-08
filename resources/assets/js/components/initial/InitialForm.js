@@ -7,6 +7,7 @@ export default class InitialForm extends Component {
   }
 
   render() {
+    console.log('initial');
     return (
       <div>
         <h1>Datepickers</h1>
