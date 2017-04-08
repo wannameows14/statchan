@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import InitialForm from './initial/InitialForm.js';
+import InitialForm from './initial/InitialForm.jsx';
 
 const style = {
   margin: 'auto',
@@ -23,9 +23,8 @@ export default class Master extends Component {
   }
 
   handleKeyDown(e){
-
     if (e.code == "KeyS" && e.altKey) {
-      this.setState({ child: <InitialForm /> });
+      this.setState({ child: (<InitialForm />) });
     } else if (e.code == "Escape") {
       this.setState({ child: [] });
     }
@@ -40,7 +39,6 @@ export default class Master extends Component {
   }
 
   render() {
-    console.log(this.state.child);
     return (
       <div style={style}>
         {this.state.child}

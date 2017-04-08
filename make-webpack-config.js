@@ -55,15 +55,15 @@ module.exports = function() {
 
 	var plugins = [];
 
-	plugins.push(
-		new webpack.optimize.UglifyJsPlugin({
-			compressor: {
-				warnings: false
-			},
-			sourceMap: false
-		}),
-		new webpack.optimize.DedupePlugin() // don`t use it in watch mod!
-	);
+	// plugins.push(
+	// 	new webpack.optimize.UglifyJsPlugin({
+	// 		compressor: {
+	// 			warnings: false
+	// 		},
+	// 		sourceMap: false
+	// 	}),
+	// 	new webpack.optimize.DedupePlugin() // don`t use it in watch mod!
+	// );
 
     var loaders = {
           "jsx":{

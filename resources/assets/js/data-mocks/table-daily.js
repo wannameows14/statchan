@@ -1,4 +1,4 @@
-{
+export default {
   "format": "daily",
   "data": {
       "01-04-2017": {
